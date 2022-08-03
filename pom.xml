@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This file was retrived from the ArcaneFramework source code. Learn more
+about ArcaneFramework at <https://github.com/lokka30/ArcaneFramework/>.
+
+Copyright © 2022 lokka30 and contributors
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>me.lokka30.arcaneframework</groupId>
+  <artifactId>arcaneframework-parent</artifactId>
+  <version>0.1.0</version>
+  <modules>
+    <module>bukkit</module>
+    <module>core</module>
+  </modules>
+  <packaging>pom</packaging>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <defaultGoal>clean package</defaultGoal>
+  </build>
+
+  <name>ArcaneFramework - Parent</name>
+  <description>Parent module of the ArcaneFramework source</description>
+  <url>https://github.com/lokka30/ArcaneFramework/</url>
+  <inceptionYear>2022</inceptionYear>
+  <licenses>
+    <license>
+      <name>GNU GPL v3.0</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+    </license>
+  </licenses>
+  <organization>
+    <name>ArcanePlugins</name>
+    <url>https://discord.io/arcaneplugins</url>
+  </organization>
+  <developers>
+    <developer>
+      <id>lokka30</id>
+      <name>Lachlan Adamson</name>
+      <organization>ArcanePlugins</organization>
+      <url>https://github.com/lokka30/</url>
+      <email>lokka30@protonmail.com</email>
+      <roles>
+        <role>Director</role>
+        <role>Author</role>
+      </roles>
+      <timezone>8</timezone>
+    </developer>
+  </developers>
+
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/lokka30/ArcaneFramework/issues/</url>
+  </issueManagement>
+
+</project>
