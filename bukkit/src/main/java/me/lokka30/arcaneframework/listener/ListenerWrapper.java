@@ -19,6 +19,37 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 package me.lokka30.arcaneframework.listener;
 
-public abstract class ListenerWrapper {
-    //TODO
+import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
+
+public abstract class ListenerWrapper implements Listener {
+
+    private final boolean imperative;
+
+    public ListenerWrapper(
+        final boolean imperative
+    ) {
+        this.imperative = imperative;
+    }
+
+    public ListenerWrapper() {
+        this.imperative = false;
+    }
+
+    public void register(final Plugin plugin) {
+        final PluginManager pm = Bukkit.getPluginManager();
+
+        try {
+            pm.registerEvents(this, plugin);
+        } catch(Exception ex) {
+            if(isImperative())
+                throw ex;
+        }
+    }
+
+    public boolean isImperative() {
+        return imperative;
+    }
 }

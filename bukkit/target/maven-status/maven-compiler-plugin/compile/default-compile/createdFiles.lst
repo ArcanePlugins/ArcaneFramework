@@ -1,0 +1,12 @@
+me/lokka30/arcaneframework/command/Command.class
+me/lokka30/arcaneframework/file/data/JsonData.class
+me/lokka30/arcaneframework/util/logging/LogLevel.class
+me/lokka30/arcaneframework/listener/ListenerWrapper.class
+me/lokka30/arcaneframework/file/config/YamlConfig.class
+me/lokka30/arcaneframework/command/BaseCommand$1.class
+me/lokka30/arcaneframework/util/item/builder/BuilderSettings.class
+me/lokka30/arcaneframework/command/SubCommand.class
+me/lokka30/arcaneframework/util/item/builder/ItemBuilder.class
+me/lokka30/arcaneframework/command/BaseCommand.class
+me/lokka30/arcaneframework/util/logging/LogWrapperBase.class
+me/lokka30/arcaneframework/util/logging/LogWrapperBase$1.class

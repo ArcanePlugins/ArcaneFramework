@@ -22,7 +22,7 @@ package me.lokka30.arcaneframework.util.timer;
 import java.text.DecimalFormat;
 
 @SuppressWarnings("unused")
-public class SimpleTimer {
+public final class SimpleTimer {
 
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,##0.00");
 

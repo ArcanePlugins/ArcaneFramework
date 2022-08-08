@@ -17,23 +17,32 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package me.lokka30.arcaneframework.command;
+package me.lokka30.arcaneframework.util.item.builder;
 
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.annotation.Nonnull;
-import org.bukkit.command.CommandSender;
+import javax.annotation.Nullable;
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 
-sealed abstract class Command permits BaseCommand, SubCommand {
+public final class ItemBuilder {
 
-    public abstract void run(
-        final @Nonnull CommandSender sender,
-        final @Nonnull String[] args
-    );
+    private @Nonnull Material type = Material.AIR;
+    private int amount = 1;
+    private @Nullable Integer damage = null;
+    private @Nonnull Set<Enchantment> enchantments = new HashSet<>();
 
-    @Nonnull
-    public abstract List<String> suggest(
-        final @Nonnull CommandSender sender,
-        final @Nonnull String[] args
-    );
+    private @Nullable String displayName = null;
+    private @Nullable String localizedName = null;
+    private @Nonnull List<String> lore = new ArrayList<>();
+    private @Nullable Integer customModelData = null;
+    private boolean unbreakable = false;
 
+    private @Nonnull EnumSet<BuilderSettings> builderSettings = EnumSet.noneOf(BuilderSettings.class);
+
+    //TODO
 }
