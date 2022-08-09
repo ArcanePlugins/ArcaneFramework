@@ -24,6 +24,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
+@SuppressWarnings("unused")
 public abstract class ListenerWrapper implements Listener {
 
     private final boolean imperative;
