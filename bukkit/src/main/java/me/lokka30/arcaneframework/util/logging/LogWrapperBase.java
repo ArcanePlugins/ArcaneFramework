@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 import org.bukkit.plugin.Plugin;
 
+@SuppressWarnings("unused")
 public abstract class LogWrapperBase {
 
     private final Logger logger;
