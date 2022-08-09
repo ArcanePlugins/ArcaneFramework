@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 
+@SuppressWarnings("unused")
 public final class ItemBuilder {
 
     private @Nonnull Material type = Material.AIR;
