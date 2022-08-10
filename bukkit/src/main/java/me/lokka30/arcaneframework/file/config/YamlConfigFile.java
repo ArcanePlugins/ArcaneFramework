@@ -17,8 +17,20 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package me.lokka30.arcaneframework.file.data;
+package me.lokka30.arcaneframework.file.config;
 
-public abstract class JsonData {
-    //TODO
+import javax.annotation.Nonnull;
+import org.bukkit.plugin.Plugin;
+
+public abstract class YamlConfigFile extends ConfigFile {
+
+    public YamlConfigFile(
+        @Nonnull Plugin plugin,
+        @Nonnull String fileName
+    ) {
+        super(plugin, fileName + ".yml");
+    }
+
+    //TODO Configurate
+
 }
