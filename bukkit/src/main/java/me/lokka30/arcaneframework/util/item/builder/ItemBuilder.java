@@ -67,6 +67,11 @@ public final class ItemBuilder {
             stack.addEnchantments(getEnchantments());
         }
 
+        /*
+        For any operations which do not require ItemMeta, do them above, not below this comment.
+        Bukkit allows some ItemStacks to have no item meta, so this must be obeyed.
+         */
+
         final ItemMeta meta = stack.getItemMeta();
         if(meta == null) return stack;
 
