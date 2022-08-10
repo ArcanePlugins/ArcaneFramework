@@ -17,7 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package me.lokka30.arcaneframework.util.item.builder;
+package me.lokka30.arcaneframework.item;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -310,4 +310,9 @@ public final class ItemBuilder {
     }
 
     //TODO
+
+    public enum BuilderSettings {
+        UNSAFE_ENCHANTMENTS
+    }
+
 }

@@ -33,6 +33,9 @@ Shaded plugin development library for ArcanePlugins software
 **ArcaneFramework** is a library purposed to reduce the amount of boilerplate code required
 in our plugin suite.
 
+It is designed to replace our usage of [MicroLib][0].
+Upon sufficient completion, MicroLib will be discontinued.
+
 ## Should I use this library?
 
 Probably not.
@@ -91,3 +94,5 @@ GNU General Public License for more details.
 > 
 > You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+[0]: https://github.com/lokka30/MicroLib

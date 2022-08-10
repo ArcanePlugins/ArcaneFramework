@@ -17,9 +17,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package me.lokka30.arcaneframework.util.logging;
+package me.lokka30.arcaneframework.logger;
 
 import java.util.Objects;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 import org.bukkit.plugin.Plugin;
@@ -35,17 +36,27 @@ public abstract class LogWrapperBase {
         this.logger = plugin.getLogger();
     }
 
-    public void log(final @Nonnull LogLevel level, final @Nonnull String msg) {
-        switch(level) {
-            case INFO -> getLogger().info(msg);
-            case WARNING -> getLogger().warning(msg);
-            case SEVERE -> getLogger().severe(msg);
-        }
+    public void log(
+        final @Nonnull Level level,
+        final @Nonnull String msg,
+        final @Nonnull LogFlag... flags
+    ) {
+        Objects.requireNonNull(level, "level");
+        Objects.requireNonNull(msg, "msg");
+        Objects.requireNonNull(flags, "flags");
+
+        final StringBuilder sb = new StringBuilder(msg);
+        for(var flag : flags) sb.append("\n").append(flag.getMessage());
+        getLogger().log(level, sb.toString());
     }
 
-    public void debugLog(final @Nonnull String tag, final @Nonnull String msg) {
+    public void debugLog(
+        final @Nonnull String tag,
+        final @Nonnull String msg,
+        final @Nonnull LogFlag... flags
+    ) {
         if(!listensForDebugTag(tag)) return;
-        getLogger().info("[DEBUG - " + tag + "]: " + msg);
+        log(Level.INFO, "[DEBUG - " + tag + "]: " + msg, flags);
     }
 
     protected abstract boolean listensForDebugTag(final @Nonnull String tag);
