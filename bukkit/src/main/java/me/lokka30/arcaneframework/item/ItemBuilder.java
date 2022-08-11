@@ -19,15 +19,19 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 package me.lokka30.arcaneframework.item;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import org.bukkit.Material;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -41,13 +45,13 @@ public final class ItemBuilder {
     private Material type;
     private int amount = 1;
     private int damage = 0;
-    private final Collection<Enchantment> enchantments = new HashSet<>();
+    private final Map<Enchantment, Integer> enchantments = new HashMap<>();
     private final Collection<ItemFlag> itemFlags = EnumSet.noneOf(ItemFlag.class);
     private String displayName = null;
     private String localizedName = null;
     private final List<String> lore = new ArrayList<>();
     private Integer customModelData = null;
-    private final Collection<AttributeModifier> attributeModifiers = new HashSet<>();
+    private final Multimap<Attribute, AttributeModifier> attributeModifiers = ArrayListMultimap.create();
     private boolean unbreakable = false;
     private final EnumSet<BuilderSettings> builderSettings = EnumSet.noneOf(BuilderSettings.class);
 
@@ -122,31 +126,19 @@ public final class ItemBuilder {
     }
 
     @Nonnull
-    public ItemBuilder withAddedEnchantments(final @Nonnull Collection<Enchantment> enchantments) {
-        getEnchantments().addAll(enchantments);
+    public ItemBuilder withAddedEnchantments(final @Nonnull Map<Enchantment, Integer> enchantments) {
+        getEnchantments().putAll(enchantments);
         return this;
     }
 
     @Nonnull
-    public ItemBuilder withAddedEnchantments(final @Nonnull Enchantment... enchantments) {
-        Collections.addAll(getEnchantments(), enchantments);
-        return this;
-    }
-
-    @Nonnull
-    public ItemBuilder withNewEnchantments(final @Nonnull Collection<Enchantment> enchantments) {
+    public ItemBuilder withNewEnchantments(final @Nonnull Map<Enchantment, Integer> enchantments) {
         getEnchantments().clear();
         return withAddedEnchantments(enchantments);
     }
 
     @Nonnull
-    public ItemBuilder withNewEnchantments(final @Nonnull Enchantment... enchantments) {
-        getEnchantments().clear();
-        return withAddedEnchantments(enchantments);
-    }
-
-    @Nonnull
-    public Collection<Enchantment> getEnchantments() {
+    public Map<Enchantment, Integer> getEnchantments() {
         return enchantments;
     }
 
@@ -242,31 +234,19 @@ public final class ItemBuilder {
     }
 
     @Nonnull
-    public ItemBuilder withAddedAttributeModifiers(final Collection<AttributeModifier> attributeModifiers) {
-        getAttributeModifiers().addAll(attributeModifiers);
+    public ItemBuilder withAddedAttributeModifiers(final Multimap<Attribute, AttributeModifier> attributeModifiers) {
+        getAttributeModifiers().putAll(attributeModifiers);
         return this;
     }
 
     @Nonnull
-    public ItemBuilder withAddedAttributeModifiers(final AttributeModifier... attributeModifiers) {
-        Collections.addAll(getAttributeModifiers(), attributeModifiers);
-        return this;
-    }
-
-    @Nonnull
-    public ItemBuilder withNewAttributeModifiers(final Collection<AttributeModifier> attributeModifiers) {
+    public ItemBuilder withNewAttributeModifiers(final Multimap<Attribute, AttributeModifier> attributeModifiers) {
         getBuilderSettings().clear();
         return withAddedAttributeModifiers(attributeModifiers);
     }
 
     @Nonnull
-    public ItemBuilder withNewAttributeModifiers(final AttributeModifier... attributeModifiers) {
-        getBuilderSettings().clear();
-        return withAddedAttributeModifiers(attributeModifiers);
-    }
-
-    @Nonnull
-    public Collection<AttributeModifier> getAttributeModifiers() {
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers() {
         return attributeModifiers;
     }
 
@@ -308,8 +288,6 @@ public final class ItemBuilder {
     public Collection<BuilderSettings> getBuilderSettings() {
         return builderSettings;
     }
-
-    //TODO
 
     public enum BuilderSettings {
         UNSAFE_ENCHANTMENTS
