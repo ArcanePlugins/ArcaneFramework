@@ -49,6 +49,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
       <version>4.1.2</version> <!-- remember to edit libraries list in plugin.yml if updating -->
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.spongepowered</groupId>
+      <artifactId>configurate-gson</artifactId>
+      <version>4.1.2</version> <!-- remember to edit libraries list in plugin.yml if updating -->
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <properties>

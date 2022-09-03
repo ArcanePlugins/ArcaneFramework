@@ -22,27 +22,27 @@ package me.lokka30.arcaneframework.file.config;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import org.bukkit.plugin.Plugin;
-import org.spongepowered.configurate.CommentedConfigurationNode;
+import org.spongepowered.configurate.BasicConfigurationNode;
 import org.spongepowered.configurate.ConfigurateException;
-import org.spongepowered.configurate.yaml.YamlConfigurationLoader;
+import org.spongepowered.configurate.gson.GsonConfigurationLoader;
 
 @SuppressWarnings("unused")
-public abstract class YamlConfigFile extends ConfigFile {
+public abstract class JsonConfigFile extends ConfigFile {
 
-    private final YamlConfigurationLoader loader = YamlConfigurationLoader.builder()
+    private final GsonConfigurationLoader loader = GsonConfigurationLoader.builder()
         .file(getDataDirPath().toFile())
         .build();
 
-    private CommentedConfigurationNode rootNode = null;
+    private BasicConfigurationNode rootNode = null;
 
-    public YamlConfigFile(
-        @Nonnull Plugin plugin,
-        @Nonnull String fileName
+    public JsonConfigFile(
+        @Nonnull final Plugin plugin,
+        @Nonnull final String fileName
     ) {
         super(plugin, fileName);
     }
 
-    public YamlConfigFile(
+    public JsonConfigFile(
         @Nonnull final Plugin plugin,
         @Nonnull final String fileName,
         @Nonnull final String relativePath
@@ -62,12 +62,12 @@ public abstract class YamlConfigFile extends ConfigFile {
     }
 
     @Nonnull
-    public CommentedConfigurationNode getRootNode() {
+    public BasicConfigurationNode getRootNode() {
         return Objects.requireNonNull(rootNode, "rootNode");
     }
 
     @Nonnull
-    public YamlConfigurationLoader getLoader() {
+    public GsonConfigurationLoader getLoader() {
         return loader;
     }
 

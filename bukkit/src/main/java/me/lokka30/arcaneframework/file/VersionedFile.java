@@ -6,6 +6,7 @@ package me.lokka30.arcaneframework.file;
  * plugin is running an older file than desired. With this information, the plugin can choose to
  * auto-update the file, warn the console, and so on.
  */
+@SuppressWarnings("unused")
 public interface VersionedFile {
 
     /**
@@ -32,6 +33,8 @@ public interface VersionedFile {
      * @return minimum file version
      */
     int getMinimumFileVersion();
+
+    void migrate();
 
 
 
