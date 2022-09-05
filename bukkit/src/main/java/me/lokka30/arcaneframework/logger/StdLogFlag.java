@@ -1,5 +1,13 @@
 package me.lokka30.arcaneframework.logger;
 
+/**
+ * A bunch of standard log flags ideally used in several plugins implementing ArcaneFramework.
+ *
+ * @author  Lachlan Adamson
+ * @version 1
+ * @see     LogFlag
+ * @since   0.1.0
+ */
 @SuppressWarnings("unused")
 public enum StdLogFlag implements LogFlag {
 

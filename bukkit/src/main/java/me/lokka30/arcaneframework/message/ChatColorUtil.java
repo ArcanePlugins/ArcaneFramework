@@ -1,15 +1,23 @@
 package me.lokka30.arcaneframework.message;
 
-import static org.bukkit.ChatColor.COLOR_CHAR;
+import static net.md_5.bungee.api.ChatColor.COLOR_CHAR;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 
+/**
+ * Utilities for colorizing legacy-style chat messages.
+ *
+ * @author  Lachlan Adamson
+ * @version 1
+ * @see     ChatColor
+ * @since   0.1.0
+ */
 @SuppressWarnings("unused")
-public final class MsgUtil {
+public final class ChatColorUtil {
 
     public static final Pattern HEX_PATTERN = Pattern.compile("#([A-Fa-f0-9]{6})");
 

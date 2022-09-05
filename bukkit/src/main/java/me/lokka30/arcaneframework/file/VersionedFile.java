@@ -1,10 +1,14 @@
 package me.lokka30.arcaneframework.file;
 
 /**
- * Objects implementing this interface represents that a file is versioned. Versioned files have
+ * Classes implementing this interface represents that its file is versioned. Versioned files have
  * a metadata section with the current file version set so that the plugin can identify if the
  * plugin is running an older file than desired. With this information, the plugin can choose to
  * auto-update the file, warn the console, and so on.
+ *
+ * @author  Lachlan Adamson
+ * @version 1
+ * @since   0.1.0
  */
 @SuppressWarnings("unused")
 public interface VersionedFile {

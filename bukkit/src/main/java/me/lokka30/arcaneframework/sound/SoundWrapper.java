@@ -6,6 +6,15 @@ import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
+/**
+ * Easily create portable sound wrapper objects which can play sounds to players (local) or
+ * globally, or at certain locations.
+ *
+ * @author  Lachlan Adamson
+ * @version 1
+ * @see     Sound
+ * @since   0.1.0
+ */
 @SuppressWarnings("unused")
 public class SoundWrapper {
 
@@ -13,6 +22,14 @@ public class SoundWrapper {
     private float volume;
     private float pitch;
 
+    /**
+     * Create a new SoundWrapper object with given sound, volume, and pitch.
+     * These values are mutable within the object.
+     *
+     * @param sound sound to play
+     * @param volume volume of the sound
+     * @param pitch pitch of the sound
+     */
     public SoundWrapper(
         final @Nonnull Sound sound,
         final float volume,

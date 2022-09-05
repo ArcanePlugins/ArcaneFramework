@@ -26,6 +26,13 @@ import org.spongepowered.configurate.BasicConfigurationNode;
 import org.spongepowered.configurate.ConfigurateException;
 import org.spongepowered.configurate.gson.GsonConfigurationLoader;
 
+/**
+ * Represents a configuration file using the JSON (.json) format.
+ *
+ * @author  Lachlan Adamson
+ * @version 1
+ * @since   0.1.0
+ */
 @SuppressWarnings("unused")
 public abstract class JsonConfigFile extends ConfigFile {
 

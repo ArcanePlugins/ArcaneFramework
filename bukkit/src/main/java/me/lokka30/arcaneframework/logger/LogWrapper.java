@@ -25,12 +25,25 @@ import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 import org.bukkit.plugin.Plugin;
 
+/**
+ * Base class which wraps over the Bukkit logger.
+ * <p>
+ * Implementations should extend this class and call it 'Log' for conciseness within code.
+ * <p>
+ * It is recommended that implementations contain static methods for logging for additional
+ * conciseness.
+ *
+ * @author  Lachlan Adamson
+ * @version 1
+ * @see     java.util.logging.Logger
+ * @since   0.1.0
+ */
 @SuppressWarnings("unused")
-public abstract class LogWrapperBase {
+public abstract class LogWrapper {
 
     private final Logger logger;
 
-    public LogWrapperBase(final @Nonnull Plugin plugin) {
+    public LogWrapper(final @Nonnull Plugin plugin) {
         Objects.requireNonNull(plugin, "plugin");
 
         this.logger = plugin.getLogger();

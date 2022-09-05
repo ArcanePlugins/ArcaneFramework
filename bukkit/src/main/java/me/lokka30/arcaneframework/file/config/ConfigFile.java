@@ -5,6 +5,13 @@ import me.lokka30.arcaneframework.file.ExternalFile;
 import me.lokka30.arcaneframework.file.VersionedFile;
 import org.bukkit.plugin.Plugin;
 
+/**
+ * Represents a configuration file of no particular file format.
+ *
+ * @author  Lachlan Adamson
+ * @version 1
+ * @since   0.1.0
+ */
 @SuppressWarnings("unused")
 abstract class ConfigFile extends ExternalFile implements VersionedFile {
 

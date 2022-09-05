@@ -38,9 +38,7 @@ Upon sufficient completion, MicroLib will be discontinued.
 
 ## Should I use this library?
 
-Probably not.
-
-Unexpected, right? Usually libraries want to sell themselves to developers. 😄
+**Probably not.** Unexpected, right? Usually libraries want to sell themselves to developers. 😄
 
 There may be features you like in the library, however, there are a handful of barriers this library
 poses to developers interested in adopting it. It boils down to how this library is designed for
@@ -66,8 +64,8 @@ in your plugins which adopt it.
 - This library contains only the features that we require.
   - Again, feel free to create a fork if you want to expand on ArcaneFramework.
 
-- Offers minimal documentation.
-  - Enough that we (hopefully) won't forget what things do.
+- Not widely documented.
+  - Documented enough that we (hopefully) won't forget what things do.
 
 - Makes breaking changes as often as we need them to.
   - As we will have large codebases depending on ArcaneFramework, we will aim to not make large
@@ -80,19 +78,25 @@ ourselves.
 
 ## Copyright Notice
 
-> Copyright © 2022 lokka30 and contributors
-> 
-> This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-> 
-> This program is distributed in the hope that it will be useful,
+```
+         Copyright © 2022 lokka30 and contributors.
+
+      /\  |\_________ ArcaneFramework is free software; you
+     /  \ |  _______/ can redistribute it and/or modify it
+    / /\ \| |____     under the terms of the GNU General
+   / /  \ `  ___/     Public License as published by the
+  / /    \  |         Free Software Version, either version
+ / /____  | |         3 of the license, or (at your option)
+/______/ /__|         any later version.
+
+This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
-> 
-> You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ 
+You should have received a copy of the GNU General Public
+License along with this program.  If not, see
+<https://www.gnu.org/licenses/>.
+```
 
 [0]: https://github.com/lokka30/MicroLib

@@ -39,6 +39,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 
+/**
+ * The ItemBuilder allows you to easily construct ItemStacks.
+ *
+ * @author  Lachlan Adamson
+ * @version 1
+ * @since   0.1.0
+ */
 @SuppressWarnings("unused")
 public final class ItemBuilder {
 

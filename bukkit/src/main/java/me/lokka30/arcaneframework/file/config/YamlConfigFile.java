@@ -26,6 +26,13 @@ import org.spongepowered.configurate.CommentedConfigurationNode;
 import org.spongepowered.configurate.ConfigurateException;
 import org.spongepowered.configurate.yaml.YamlConfigurationLoader;
 
+/**
+ * Represents a configuration file using the YAML (.yml or .yaml) format.
+ *
+ * @author  Lachlan Adamson
+ * @version 1
+ * @since   0.1.0
+ */
 @SuppressWarnings("unused")
 public abstract class YamlConfigFile extends ConfigFile {
 
