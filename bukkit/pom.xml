@@ -29,12 +29,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   </build>
 
   <artifactId>arcaneframework-bukkit</artifactId>
-  <version>0.1.0</version>
+  <version>${project.parent.version}</version>
   <packaging>jar</packaging>
   <parent>
     <artifactId>arcaneframework-parent</artifactId>
     <groupId>io.github.arcaneplugins.arcaneframework</groupId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
   </parent>
   <dependencies>
     <!--suppress VulnerableLibrariesLocal -->

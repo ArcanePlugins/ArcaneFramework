@@ -24,11 +24,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   <parent>
     <artifactId>arcaneframework-parent</artifactId>
     <groupId>io.github.arcaneplugins.arcaneframework</groupId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>arcaneframework-core</artifactId>
+  <version>${project.parent.version}</version>
 
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
