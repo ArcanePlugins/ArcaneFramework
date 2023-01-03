@@ -3,7 +3,7 @@
 This file was retrived from the ArcaneFramework source code. Learn more
 about ArcaneFramework at <https://github.com/lokka30/ArcaneFramework/>.
 
-Copyright © 2022 lokka30 and contributors
+Copyright © 2022-2023 lokka30 and contributors
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,8 +23,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <artifactId>arcaneframework-parent</artifactId>
-    <groupId>me.lokka30.arcaneframework</groupId>
-    <version>0.1.0</version>
+    <groupId>io.github.arcaneplugins.arcaneframework</groupId>
+    <version>0.2.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 

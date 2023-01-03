@@ -1,6 +1,6 @@
-import me.lokka30.arcaneframework.command.HelpSystem;
-import me.lokka30.arcaneframework.command.HelpSystem.HomeChapter;
-import me.lokka30.arcaneframework.command.HelpSystem.SubChapter;
+import io.github.arcaneplugins.arcaneframework.command.HelpSystem;
+import io.github.arcaneplugins.arcaneframework.command.HelpSystem.HomeChapter;
+import io.github.arcaneplugins.arcaneframework.command.HelpSystem.SubChapter;
 import org.junit.jupiter.api.Test;
 
 public class HelpSystemTest {
@@ -17,7 +17,7 @@ public class HelpSystemTest {
             • Click here to view command help.
             • Click here to view documentation.
             • Click here to ask for support with LM.""");
-        System.out.println(home.getFormattedPage(1));
+        //System.out.println(home.getFormattedPage(1));
 
         {
             // CurrentChapter: `Home` -> `Support`
@@ -32,6 +32,7 @@ public class HelpSystemTest {
                 Please do not use other sites to request support from our staff.
                 """
             );
+            //System.out.println(homeSupport.getFormattedPage(1));
         }
 
         {
@@ -53,7 +54,7 @@ public class HelpSystemTest {
                 
                 • /LM About
                 ⎣ Check info about the installed version of LM. [see chapter]""");
-            System.out.println(homeLm.getFormattedPage(2));
+            //System.out.println(homeLm.getFormattedPage(2));
 
             {
                 // CurrentChapter: `Home` -> `/LM` -> `Summon`
@@ -67,7 +68,7 @@ public class HelpSystemTest {
                     ⎣ Summon a levelled mob by a custom entity id. [see chapter]"""
                 );
 
-                System.out.println(homeLmSummon.getFormattedPage(1));
+                //System.out.println(homeLmSummon.getFormattedPage(1));
 
                 {
                     // CurrentChapter: `Home` -> `/LM` -> `Summon` -> `EntityType`
@@ -80,7 +81,7 @@ public class HelpSystemTest {
                         ⎣ Example: /LM Summon Zombie ? ? ?"""
                     );
 
-                    System.out.println(homeLmSummonEntityType.getFormattedPage(1));
+                    //System.out.println(homeLmSummonEntityType.getFormattedPage(1));
                 }
             }
         }
