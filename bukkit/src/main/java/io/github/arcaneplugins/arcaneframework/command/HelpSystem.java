@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * Allows for easy implementation of help commands, such as `/lm help`.
@@ -17,26 +16,9 @@ import javax.annotation.Nullable;
 @SuppressWarnings("unused")
 public final class HelpSystem {
 
-    private static @Nullable Consumer<String> chapterPageSender = null;
-
-    public static void setChapterPageSender(
-        final @Nonnull Consumer<String> chapterPageSender
-    ) {
-        HelpSystem.chapterPageSender = chapterPageSender;
-    }
-
-    public static @Nonnull Consumer<String> getChapterPageSender() {
-        return Objects.requireNonNull(
-            chapterPageSender,
-            "chapterPageSender not initialized"
-        );
-    }
-
     private final HomeChapter homeChapter;
 
     public HelpSystem() {
-        Objects.requireNonNull(chapterPageSender, "chapterPageSender not initialized");
-
         homeChapter = new HomeChapter(this);
     }
 
