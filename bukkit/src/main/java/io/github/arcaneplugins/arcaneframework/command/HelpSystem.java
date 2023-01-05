@@ -42,11 +42,11 @@ public final class HelpSystem {
             final int index
         ) {
             return """
-               ------- LM Help: %s -------
+               &8&m-------&7 LM Help: &b&n%s&8 &m-------&r
                
-               %s
+               &r%s&r
                
-               ------- (««) Page %s of %s (»») -------"""
+               &8&m-------&8 (&b&l««&8)&r &7Page %s of %s&8 (&b&l»»&8) &m-------&r"""
                 .formatted(
                     getBreadcrumbs(),
 
@@ -71,9 +71,9 @@ public final class HelpSystem {
 
             final Consumer<Chapter> consumer = chapter -> {
                 if(reversedBreadcrumb.isEmpty()) {
-                    reversedBreadcrumb.add(chapter.getId());
+                    reversedBreadcrumb.add("&b&n" + chapter.getId());
                 } else {
-                    reversedBreadcrumb.add(chapter.getId() + " « ");
+                    reversedBreadcrumb.add("&b&n" + chapter.getId() + "&8 « ");
                 }
             };
 
