@@ -23,27 +23,27 @@ public final class HelpSystem {
     public static String msgLeadingHelpCommand = "/???ReplaceMe??? help";
 
     public static String msgHeading =
-       """
-       &8&l┌ &f&lAF &fHelp Menu &8• %breadcrumbs%
-       
-       &r%page-contents%&r
-       
-       &8&l└ &8&m-&8{%previous-page%&8}&7 Page %page-current%&7 of %page-max%&8 &8{%next-page%&8}&m-""";
+        """
+        &8┌ &f&lAF &fHelp Menu &8• &7Path: %breadcrumbs%
+        
+        &r%page-contents%&r
+        
+        &8└ &8&m-&8{%previous-page%&8}&7 Page %page-current%&7 of %page-max%&8 &8{%next-page%&8}&m-""";
 
     public static String msgHeadingPreviousPage = """
-       [«««](color=blue formatting=bold run_command=%leading-help-command% %chapter-path% %previous-index%)""";
+        [«««](color=blue format=bold run_command=%leading-help-command% %chapter-path% %previous-index%)""";
 
     public static String msgHeadingNextPage = """
-       [»»»](color=blue formatting=bold run_command=%leading-help-command% %chapter-path% %next-index%)""";
+        [»»»](color=blue format=bold run_command=%leading-help-command% %chapter-path% %next-index%)""";
 
     public static String msgHeadingPageMax = """
-            [%max-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path% %max-index%)""";
+        [%max-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path% %max-index%)""";
 
     public static String msgHeadingPageCurrent = """
-            [%current-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path% %current-index%)""";
+        [%current-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path% %current-index%)""";
 
     public static String msgBreadcrumb = """
-       [%chapter-id%](color=white format=underline run_command=%leading-help-command% %chapter-path%)""";
+        [%chapter-id%](color=white format=underlined run_command=%leading-help-command% %chapter-path%)""";
 
     public static String msgBreadcrumbSeparator = """
         &8 »\s""";
@@ -87,10 +87,10 @@ public final class HelpSystem {
         public void addPages(
             final @Nonnull String... pages
         ) {
-            Collections.addAll(getPages(), Objects.requireNonNull(
-                pages,
-                "pages"
-            ));
+            Collections.addAll(
+                getPages(),
+                Objects.requireNonNull(pages, "pages")
+            );
         }
 
         public @Nonnull String getChapterPath() {
@@ -104,11 +104,10 @@ public final class HelpSystem {
                 }
             };
 
-            //noinspection DuplicatedCode
             Chapter c = this;
             while(true) {
-                consumer.accept(c);
                 if(c instanceof SubChapter sc) {
+                    consumer.accept(c);
                     c = sc.getParentChapter();
                 } else if(c instanceof HomeChapter hc) {
                     break;
@@ -140,7 +139,6 @@ public final class HelpSystem {
                 }
             };
 
-            //noinspection DuplicatedCode
             Chapter c = this;
             while(true) {
                 consumer.accept(c);
