@@ -16,14 +16,42 @@ import javax.annotation.Nonnull;
 @SuppressWarnings("unused")
 public final class HelpSystem {
 
-    private final HomeChapter homeChapter;
-
-    public HelpSystem() {
-        homeChapter = new HomeChapter(this);
+    private HelpSystem() throws IllegalAccessException {
+        throw new IllegalAccessException("Illegal instantiation of utility class");
     }
 
-    public @Nonnull HomeChapter getHomeChapter() {
-        return homeChapter;
+    public static String msgLeadingHelpCommand = "/???ReplaceMe??? help";
+
+    public static String msgHeading =
+       """
+       &8&l┌ &f&lAF &fHelp Menu &8• %breadcrumbs%
+       
+       &r%page-contents%&r
+       
+       &8&l└ &8&m-&8{%previous-page%&8}&7 Page %page-current%&7 of %page-max%&8 &8{%next-page%&8}&m-""";
+
+    public static String msgHeadingPreviousPage = """
+       [«««](color=blue formatting=bold run_command=%leading-help-command% %chapter-path% %previous-index%)""";
+
+    public static String msgHeadingNextPage = """
+       [»»»](color=blue formatting=bold run_command=%leading-help-command% %chapter-path% %next-index%)""";
+
+    public static String msgHeadingPageMax = """
+            [%max-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path% %max-index%)""";
+
+    public static String msgHeadingPageCurrent = """
+            [%current-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path% %current-index%)""";
+
+    public static String msgBreadcrumb = """
+       [%chapter-id%](color=white format=underline run_command=%leading-help-command% %chapter-path%)""";
+
+    public static String msgBreadcrumbSeparator = """
+        &8 »\s""";
+
+    private static final HomeChapter HOME_CHAPTER = new HomeChapter();
+
+    public static @Nonnull HomeChapter getHomeChapter() {
+        return HOME_CHAPTER;
     }
 
     public static sealed class Chapter permits HomeChapter, SubChapter {
@@ -41,20 +69,19 @@ public final class HelpSystem {
         public @Nonnull String getFormattedPage(
             final int index
         ) {
-            return """
-               &8&m-------&7 LM Help: &b&n%s&8 &m-------&r
-               
-               &r%s&r
-               
-               &8&m-------&8 (&b&l««&8)&r &7Page %s of %s&8 (&b&l»»&8) &m-------&r"""
-                .formatted(
-                    getBreadcrumbs(),
-
-                    getPages().get(index - 1),
-
-                    index,
-                    getPages().size()
-                );
+            return msgHeading
+                .replace("%breadcrumbs%", getBreadcrumbs())
+                .replace("%page-contents%", getPages().get(index - 1))
+                .replace("%previous-page%", msgHeadingPreviousPage)
+                .replace("%page-current%", msgHeadingPageCurrent)
+                .replace("%current-index%", Integer.toString(index))
+                .replace("%page-max%", msgHeadingPageMax)
+                .replace("%next-page%", msgHeadingNextPage)
+                .replace("%max-index%", Integer.toString(getPages().size()))
+                .replace("%next-index%", Integer.toString(index + 1))
+                .replace("%previous-index%", Integer.toString(index - 1))
+                .replace("%chapter-path%", getChapterPath())
+                .replace("%leading-help-command%", msgLeadingHelpCommand);
         }
 
         public void addPages(
@@ -66,17 +93,54 @@ public final class HelpSystem {
             ));
         }
 
+        public @Nonnull String getChapterPath() {
+            List<String> reversePath = new ArrayList<>();
+
+            final Consumer<Chapter> consumer = chapter -> {
+                if(reversePath.isEmpty()) {
+                    reversePath.add(chapter.getId());
+                } else {
+                    reversePath.add(chapter.getId() + " ");
+                }
+            };
+
+            //noinspection DuplicatedCode
+            Chapter c = this;
+            while(true) {
+                consumer.accept(c);
+                if(c instanceof SubChapter sc) {
+                    c = sc.getParentChapter();
+                } else if(c instanceof HomeChapter hc) {
+                    break;
+                } else {
+                    throw new IllegalStateException(c.getClass().getName());
+                }
+            }
+
+            Collections.reverse(reversePath);
+
+            final StringBuilder sb = new StringBuilder();
+            for(final String s : reversePath) { sb.append(s); }
+            return sb.toString();
+        }
+
         public @Nonnull String getBreadcrumbs() {
             final List<String> reversedBreadcrumb = new ArrayList<>();
 
             final Consumer<Chapter> consumer = chapter -> {
+                final String breadcrumb = msgBreadcrumb
+                    .replace("%chapter-id%", chapter.getId())
+                    .replace("%leading-help-command%", msgLeadingHelpCommand)
+                    .replace("%chapter-path%", getChapterPath());
+
                 if(reversedBreadcrumb.isEmpty()) {
-                    reversedBreadcrumb.add("&b&n" + chapter.getId());
+                    reversedBreadcrumb.add(breadcrumb);
                 } else {
-                    reversedBreadcrumb.add("&b&n" + chapter.getId() + "&8 « ");
+                    reversedBreadcrumb.add(breadcrumb + msgBreadcrumbSeparator);
                 }
             };
 
+            //noinspection DuplicatedCode
             Chapter c = this;
             while(true) {
                 consumer.accept(c);
@@ -92,7 +156,7 @@ public final class HelpSystem {
             Collections.reverse(reversedBreadcrumb);
 
             final StringBuilder sb = new StringBuilder();
-            for(final String s : reversedBreadcrumb) { sb.append(s); }
+            for(final String breadcrumb : reversedBreadcrumb) { sb.append(breadcrumb); }
             return sb.toString();
         }
 
@@ -108,20 +172,9 @@ public final class HelpSystem {
 
     public static final class HomeChapter extends Chapter {
 
-        private final HelpSystem helpSystem;
-
-        public HomeChapter(
-            final @Nonnull HelpSystem helpSystem
-        ) {
-            super("Home");
-
-            this.helpSystem = Objects.requireNonNull(
-                helpSystem,
-                "helpSystem"
-            );
+        HomeChapter() {
+            super("home");
         }
-
-        public @Nonnull HelpSystem getHelpSystem() { return helpSystem; }
 
     }
 

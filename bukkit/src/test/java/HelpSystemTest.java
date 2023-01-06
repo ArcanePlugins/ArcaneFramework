@@ -9,10 +9,12 @@ public class HelpSystemTest {
 
     @Test
     void helpSystemTest() {
-        final HelpSystem hs = new HelpSystem();
-
         // Breadcrumb: `Home`
-        final HomeChapter home = hs.getHomeChapter();
+        final HomeChapter home = HelpSystem.getHomeChapter();
+
+        home.getPages().clear();
+        home.getSubChapters().clear();
+
         home.addPages("""
             • Click here to view command help.
             • Click here to view documentation.
