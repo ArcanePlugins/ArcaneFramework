@@ -24,7 +24,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   <parent>
     <artifactId>arcaneframework-parent</artifactId>
     <groupId>io.github.arcaneplugins.arcaneframework</groupId>
-    <version>0.2.6</version>
+    <version>0.2.7</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
