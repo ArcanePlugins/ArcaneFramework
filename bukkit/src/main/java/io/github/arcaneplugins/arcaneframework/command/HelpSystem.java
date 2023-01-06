@@ -31,16 +31,16 @@ public final class HelpSystem {
         &8└ &8&m-&8{%previous-page%&8}&7 Page %page-current%&7 of %page-max%&8 &8{%next-page%&8}&m-""";
 
     public static String msgHeadingPreviousPage = """
-        [«««](color=blue format=bold run_command=%leading-help-command% %chapter-path% %previous-index%)""";
+        [«««](color=blue format=bold run_command=%leading-help-command% %chapter-path%%previous-index%)""";
 
     public static String msgHeadingNextPage = """
-        [»»»](color=blue format=bold run_command=%leading-help-command% %chapter-path% %next-index%)""";
+        [»»»](color=blue format=bold run_command=%leading-help-command% %chapter-path%%next-index%)""";
 
     public static String msgHeadingPageMax = """
-        [%max-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path% %max-index%)""";
+        [%max-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path%%max-index%)""";
 
     public static String msgHeadingPageCurrent = """
-        [%current-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path% %current-index%)""";
+        [%current-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path%%current-index%)""";
 
     public static String msgBreadcrumb = """
         [%chapter-id%](color=white format=underlined run_command=%leading-help-command% %chapter-path%)""";
@@ -120,6 +120,7 @@ public final class HelpSystem {
 
             final StringBuilder sb = new StringBuilder();
             for(final String s : reversePath) { sb.append(s); }
+            sb.append(" ");
             return sb.toString();
         }
 
