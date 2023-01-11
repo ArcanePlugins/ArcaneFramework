@@ -42,8 +42,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 /**
  * The ItemBuilder allows you to easily construct ItemStacks.
  *
- * @author  Lachlan Adamson
- * @version 1
+ * @author  lokka30
  * @since   0.1.0
  */
 @SuppressWarnings("unused")

@@ -11,8 +11,7 @@ import net.md_5.bungee.api.ChatColor;
 /**
  * Utilities for colorizing legacy-style chat messages.
  *
- * @author  Lachlan Adamson
- * @version 1
+ * @author  lokka30
  * @see     ChatColor
  * @since   0.1.0
  */

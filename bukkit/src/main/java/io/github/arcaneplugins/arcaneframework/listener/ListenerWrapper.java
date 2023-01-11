@@ -29,8 +29,7 @@ import org.bukkit.plugin.Plugin;
  * runtime safety by stating whether it is imperative or not for the plugin to register. It also
  * offers a simple method to register the listener using the Bukkit Plugin Manager.
  *
- * @author  Lachlan Adamson
- * @version 1
+ * @author  lokka30
  * @see     Listener
  * @since   0.1.0
  */

@@ -22,28 +22,30 @@ public final class HelpSystem {
 
     public static String msgLeadingHelpCommand = "/???ReplaceMe??? help";
 
-    public static String msgHeading =
+    public static String msgStructure =
         """
+        
         &8┌ &f&lAF &fHelp Menu &8• &7Path: %breadcrumbs%
         
         &r%page-contents%&r
         
-        &8└ &8&m-&8{%previous-page%&8}&7 Page %page-current%&7 of %page-max%&8 &8{%next-page%&8}&m-""";
+        &8└ &8&m-&8{%previous-page%&8}&7 Page %page-current%&7 of %page-max%&8 &8{%next-page%&8}&m-
+        """;
 
     public static String msgHeadingPreviousPage = """
-        [«««](color=blue format=bold run_command=%leading-help-command% %chapter-path%%previous-index%)""";
+        [«««](color=blue format=bold run_command=%leading-help-command%%chapter-path% %previous-index%)""";
 
     public static String msgHeadingNextPage = """
-        [»»»](color=blue format=bold run_command=%leading-help-command% %chapter-path%%next-index%)""";
+        [»»»](color=blue format=bold run_command=%leading-help-command%%chapter-path% %next-index%)""";
 
     public static String msgHeadingPageMax = """
-        [%max-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path%%max-index%)""";
+        [%max-index%](color=gray format=italic run_command=%leading-help-command%%chapter-path% %max-index%)""";
 
     public static String msgHeadingPageCurrent = """
-        [%current-index%](color=gray format=italic run_command=%leading-help-command% %chapter-path%%current-index%)""";
+        [%current-index%](color=gray format=italic run_command=%leading-help-command%%chapter-path% %current-index%)""";
 
     public static String msgBreadcrumb = """
-        [%chapter-id%](color=white format=underlined run_command=%leading-help-command% %chapter-path%)""";
+        [%chapter-id%](color=white format=underlined run_command=%leading-help-command%%chapter-path%)""";
 
     public static String msgBreadcrumbSeparator = """
         &8 »\s""";
@@ -69,7 +71,7 @@ public final class HelpSystem {
         public @Nonnull String getFormattedPage(
             final int index
         ) {
-            return msgHeading
+            return msgStructure
                 .replace("%breadcrumbs%", getBreadcrumbs())
                 .replace("%page-contents%", getPages().get(index - 1))
                 .replace("%previous-page%", msgHeadingPreviousPage)
@@ -105,6 +107,7 @@ public final class HelpSystem {
             };
 
             Chapter c = this;
+            if(c instanceof HomeChapter) return "";
             while(true) {
                 if(c instanceof SubChapter sc) {
                     consumer.accept(c);
@@ -119,9 +122,9 @@ public final class HelpSystem {
             Collections.reverse(reversePath);
 
             final StringBuilder sb = new StringBuilder();
-            for(final String s : reversePath) { sb.append(s); }
             sb.append(" ");
-            return sb.toString();
+            for(final String s : reversePath) { sb.append(s); }
+            return sb.toString().stripTrailing();
         }
 
         public @Nonnull String getBreadcrumbs() {
@@ -131,7 +134,7 @@ public final class HelpSystem {
                 final String breadcrumb = msgBreadcrumb
                     .replace("%chapter-id%", chapter.getId())
                     .replace("%leading-help-command%", msgLeadingHelpCommand)
-                    .replace("%chapter-path%", getChapterPath());
+                    .replace("%chapter-path%", chapter.getChapterPath());
 
                 if(reversedBreadcrumb.isEmpty()) {
                     reversedBreadcrumb.add(breadcrumb);

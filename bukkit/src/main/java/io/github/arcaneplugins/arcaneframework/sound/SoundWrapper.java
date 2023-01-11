@@ -10,8 +10,7 @@ import org.bukkit.entity.Player;
  * Easily create portable sound wrapper objects which can play sounds to players (local) or
  * globally, or at certain locations.
  *
- * @author  Lachlan Adamson
- * @version 1
+ * @author  lokka30
  * @see     Sound
  * @since   0.1.0
  */

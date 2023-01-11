@@ -13,8 +13,7 @@ import org.bukkit.plugin.Plugin;
  * constants which you can use to check whether a server is running 'at least' a specific Minecraft
  * version, or whether they are running certain server software (or derivates of such).
  *
- * @author  Lachlan Adamson
- * @version 1
+ * @author  lokka30
  * @since   0.1.0
  */
 @SuppressWarnings("unused")
@@ -23,7 +22,7 @@ public class SupportChecker {
     /**
      * Whether the server is running the SpigotMC server software (or any derivative).
      */
-    public static boolean SPIGOTMC_OR_DERIVATIVE = hasClass("net.md_5.bungee.api.ChatColor");
+    public static boolean SPIGOTMC_OR_DERIVATIVE = hasClass("net.md_5.bungee.api.chat.TextComponent");
 
     /**
      * Whether the server is running the PaperMC server software (or any derivative).

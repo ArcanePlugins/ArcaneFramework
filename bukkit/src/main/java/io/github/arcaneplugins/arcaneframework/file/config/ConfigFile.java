@@ -8,8 +8,7 @@ import org.bukkit.plugin.Plugin;
 /**
  * Represents a configuration file of no particular file format.
  *
- * @author  Lachlan Adamson
- * @version 1
+ * @author  lokka30
  * @since   0.1.0
  */
 @SuppressWarnings("unused")

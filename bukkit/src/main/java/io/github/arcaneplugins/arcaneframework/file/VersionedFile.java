@@ -6,8 +6,7 @@ package io.github.arcaneplugins.arcaneframework.file;
  * plugin is running an older file than desired. With this information, the plugin can choose to
  * auto-update the file, warn the console, and so on.
  *
- * @author  Lachlan Adamson
- * @version 1
+ * @author  lokka30
  * @since   0.1.0
  */
 @SuppressWarnings("unused")

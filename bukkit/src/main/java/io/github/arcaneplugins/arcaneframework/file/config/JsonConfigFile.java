@@ -29,8 +29,7 @@ import org.spongepowered.configurate.gson.GsonConfigurationLoader;
 /**
  * Represents a configuration file using the JSON (.json) format.
  *
- * @author  Lachlan Adamson
- * @version 1
+ * @author  lokka30
  * @since   0.1.0
  */
 @SuppressWarnings("unused")
